@@ -35,15 +35,15 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginTop="8dp"
-            tools:src="@drawable/baseline_wb_sunny_24"
-            tools:srcCompat="@drawable/baseline_wb_sunny_24b" />
+            android:src="@drawable/baseline_wb_sunny_24"
+            tools:src="@drawable/baseline_wb_sunny_24" />
 
         <TextView
             android:id="@+id/temperatura_atual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="33º"
+            tools:text="33º"
             android:textSize="96sp"
             android:textStyle="bold" />
 
@@ -73,7 +73,8 @@
                     android:id="@+id/dia_terca_icone"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    tools:src="@tools:sample/avatars" />
+                    android:src="@drawable/baseline_wb_sunny_24"
+                    tools:src="@drawable/baseline_wb_sunny_24" />
 
                 <TextView
                     android:id="@+id/dia_terca_temperatura"
@@ -103,7 +104,8 @@
                     android:id="@+id/dia_quarta_icone"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    tools:src="@tools:sample/avatars" />
+                    android:src="@drawable/baseline_wb_sunny_24"
+                    tools:src="@drawable/baseline_wb_sunny_24" />
 
                 <TextView
                     android:id="@+id/dia_quarta_temperatura"
@@ -133,7 +135,8 @@
                     android:id="@+id/dia_quinta_icone"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    tools:src="@tools:sample/avatars" />
+                    android:src="@drawable/baseline_wb_sunny_24"
+                    tools:src="@drawable/baseline_wb_sunny_24" />
 
                 <TextView
                     android:id="@+id/dia_quinta_temperatura"
@@ -163,7 +166,8 @@
                     android:id="@+id/dia_sexta_icone"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    tools:src="@tools:sample/avatars" />
+                    android:src="@drawable/baseline_wb_sunny_24"
+                    tools:src="@drawable/baseline_wb_sunny_24" />
 
                 <TextView
                     android:id="@+id/dia_sexta_temperatura"
@@ -193,7 +197,8 @@
                     android:id="@+id/dia_sabado_icone"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    tools:src="@tools:sample/avatars" />
+                    android:src="@drawable/baseline_wb_sunny_24"
+                    tools:src="@drawable/baseline_wb_sunny_24" />
 
                 <TextView
                     android:id="@+id/dia_sabado_temperatura"
