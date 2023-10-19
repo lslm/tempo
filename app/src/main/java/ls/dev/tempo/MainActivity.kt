@@ -2,6 +2,7 @@ package ls.dev.tempo
 
 import android.app.Activity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.runBlocking
@@ -22,11 +23,22 @@ class MainActivity: Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
 
+        val changeLocationButton = findViewById<Button>(R.id.change_location_button)
+        changeLocationButton.setOnClickListener {
+            ChangeLocationDialog(this).show { latitude, longitude ->
+                updateCurrentWeatherView(latitude, longitude)
+            }
+        }
+
+        updateCurrentWeatherView("-23.5228", "-46.1883")
+    }
+
+    private fun updateCurrentWeatherView(latitude: String, longitude: String) {
         val forecastClient = ForecastClient()
         var forecastResponse: ForecastResponse
 
         runBlocking {
-            forecastResponse = forecastClient.getCurrentWeather()
+            forecastResponse = forecastClient.getCurrentWeather(latitude, longitude)
         }
 
         val currentTemperatureText = findViewById<TextView>(R.id.temperatura_atual)
