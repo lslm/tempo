@@ -1,4 +1,4 @@
-package ls.dev.tempo
+package ls.dev.tempo.clients
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.android.Android

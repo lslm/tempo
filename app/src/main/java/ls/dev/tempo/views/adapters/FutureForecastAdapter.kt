@@ -1,4 +1,4 @@
-package ls.dev.tempo
+package ls.dev.tempo.views.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,11 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import ls.dev.tempo.models.FutureForecast
+import ls.dev.tempo.R
 
 class FutureForecastAdapter(
     private val context: Context,
-    val forecast: List<FutureForecast>
+    forecast: List<FutureForecast>
 ) : RecyclerView.Adapter<FutureForecastAdapter.FutureForecastViewHolder>() {
+
+    private val dataSet = forecast.toMutableList()
 
     inner class FutureForecastViewHolder(private val futureForecastView: View) : RecyclerView.ViewHolder(futureForecastView) {
         fun attach(futureForecast: FutureForecast) {
@@ -28,11 +32,17 @@ class FutureForecastAdapter(
     }
 
     override fun getItemCount(): Int {
-        return forecast.size
+        return dataSet.size
     }
 
     override fun onBindViewHolder(holder: FutureForecastViewHolder, position: Int) {
-        val forecast = forecast[position]
+        val forecast = dataSet[position]
         holder.attach(forecast)
+    }
+
+    fun update(futureForecasts: List<FutureForecast>) {
+        dataSet.clear()
+        dataSet.addAll(futureForecasts)
+        notifyDataSetChanged()
     }
 }

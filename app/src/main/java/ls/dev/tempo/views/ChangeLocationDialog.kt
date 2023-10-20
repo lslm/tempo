@@ -1,4 +1,4 @@
-package ls.dev.tempo
+package ls.dev.tempo.views
 
 import android.app.AlertDialog
 import android.content.Context
