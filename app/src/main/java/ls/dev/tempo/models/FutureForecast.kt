@@ -1,4 +1,4 @@
-package ls.dev.tempo
+package ls.dev.tempo.models
 
 data class FutureForecast(
     val day: String,

@@ -1,7 +1,8 @@
-package ls.dev.tempo
+package ls.dev.tempo.models.responses
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import ls.dev.tempo.models.responses.CurrentWeatherResponse
 
 @Serializable
 data class ForecastResponse(
