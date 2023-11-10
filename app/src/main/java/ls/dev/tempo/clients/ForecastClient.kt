@@ -12,7 +12,7 @@ class ForecastClient {
 
     private suspend fun callCurrentForecastAPI(latitude: String, longitude: String) : ForecastResponse {
         return KtorClient.httpClient.get(
-            "https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true"
+            "https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&daily=temperature_2m_max,temperature_2m_min"
         ).body()
     }
 
@@ -21,6 +21,9 @@ class ForecastClient {
         runBlocking {
             forecastResponse = callCurrentForecastAPI(latitude, longitude)
         }
+
+        println(forecastResponse)
+
         return forecastAdapter.toForecast(forecastResponse)
     }
 }
