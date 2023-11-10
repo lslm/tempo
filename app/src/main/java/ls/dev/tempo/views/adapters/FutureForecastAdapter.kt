@@ -19,10 +19,12 @@ class FutureForecastAdapter(
     inner class FutureForecastViewHolder(private val futureForecastView: View) : RecyclerView.ViewHolder(futureForecastView) {
         fun attach(futureForecast: FutureForecast) {
             val dayTextView = futureForecastView.findViewById<TextView>(R.id.future_forecast_day)
-            val temperatureTextView = futureForecastView.findViewById<TextView>(R.id.future_forecast_temperature)
+            val minTemperatureTextView = futureForecastView.findViewById<TextView>(R.id.future_forecast_min_temperature)
+            val maxTemperatureTextView = futureForecastView.findViewById<TextView>(R.id.future_forecast_max_temperature)
 
             dayTextView.text = futureForecast.day
-            temperatureTextView.text = "${futureForecast.temperature}º"
+            minTemperatureTextView.text = "${futureForecast.minTemperature}º"
+            maxTemperatureTextView.text = "${futureForecast.maxTemperature}º"
         }
     }
 

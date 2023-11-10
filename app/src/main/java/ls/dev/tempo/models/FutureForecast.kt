@@ -2,5 +2,6 @@ package ls.dev.tempo.models
 
 data class FutureForecast(
     val day: String,
-    val temperature: Double
+    val maxTemperature: Double,
+    val minTemperature: Double
 )

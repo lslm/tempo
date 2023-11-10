@@ -1,9 +1,11 @@
 package ls.dev.tempo.views
 
 import android.app.Activity
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.runBlocking
 import ls.dev.tempo.clients.ForecastClient
@@ -12,14 +14,17 @@ import ls.dev.tempo.models.FutureForecast
 import ls.dev.tempo.views.adapters.FutureForecastAdapter
 import ls.dev.tempo.R
 import ls.dev.tempo.models.Forecast
+import java.time.LocalDate
+import java.time.format.TextStyle
+import java.util.Locale
 
 class MainActivity: Activity() {
 
     val forecastClient = ForecastClient()
 
     val futureForecasts = listOf(
-        FutureForecast(day = "TER", temperature = 22.0),
-        FutureForecast(day = "QUA", temperature = 25.5),
+        FutureForecast(day = "TER", maxTemperature = 22.0, minTemperature = 0.0),
+        FutureForecast(day = "QUA", maxTemperature = 22.0, minTemperature = 0.0),
     )
 
     private val futureForecastAdapter = FutureForecastAdapter(this, futureForecasts)
@@ -50,8 +55,14 @@ class MainActivity: Activity() {
         recyclerView.adapter = futureForecastAdapter
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun updateCurrentWeatherView(forecast: Forecast) {
+        val currentDate = LocalDate.now()
+
+        val currentDateTextView = findViewById<TextView>(R.id.current_date)
         val currentTemperatureText = findViewById<TextView>(R.id.temperatura_atual)
+
+        currentDateTextView.text = currentDate.dayOfWeek.getDisplayName(TextStyle., Locale("pt", "BR"))
         currentTemperatureText.text = "${forecast.currentTemperature}ºC"
         futureForecastAdapter.update(forecast.futureForecasts)
     }
