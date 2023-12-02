@@ -62,7 +62,7 @@ class MainActivity: Activity() {
         val currentDateTextView = findViewById<TextView>(R.id.current_date)
         val currentTemperatureText = findViewById<TextView>(R.id.temperatura_atual)
 
-        currentDateTextView.text = currentDate.dayOfWeek.getDisplayName(TextStyle., Locale("pt", "BR"))
+        currentDateTextView.text = currentDate.dayOfWeek.getDisplayName(TextStyle.FULL, Locale("pt", "BR"))
         currentTemperatureText.text = "${forecast.currentTemperature}ºC"
         futureForecastAdapter.update(forecast.futureForecasts)
     }
